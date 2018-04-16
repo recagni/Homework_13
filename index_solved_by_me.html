@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+<!-- INTRODUCTION -->
+
+<!-- The purpose of this program is to generate a basic HTML web page by using the ufo dataset (provided in 
+JavaScript object form) to writes code that appends a table to the web page and then adds new rows of data for 
+each UFO sighting.
+
+HEAD -->
+
+<head>
+
+  <!-- META TAG
+  The <meta> tag provides metadata about the HTML document.
+  Not displayed, yet machine parsable, meta elements contain the page description, author, etc.
+  The "charset" attribute of the <meta> tab specifies the character encoding for the HTML document. -->
+
+  <meta charset="utf-8">
+
+
+  <!-- The "name" attribute of the <meta> tag defines the HTM document's description, keywords, and author. 
+  It also defines the viewport to control the page's dimensions and scaling for different devices. -->
+
+  <meta name="description" content="Data Science Bootcamp Project">
+  <meta name="keywords" content="HTML,CSS,JavaScript">
+  <meta name="author" content="Matteo Recagni"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- The "X-UA-Compatible" value assigned to the "http-equiv" attribute of the <meta> tag allows web authors 
+  to choose the version of Internet Explorer to be used to render the page.
+  The value "ie-edge" ensures the highest Internet Explorer mode available (e.g., for Internet Explorer 9, the
+  IE9 mode). -->
+    
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- TITLE TAG
+  The <title> tag captures the label that appears in the page tag, at the top of screen. -->
+
+  <title>UFO Data Collector</title>
+
+  <!-- SHEET STYLE ATTRIBUTE OF THE LINK TAG
+  The <link> tag defines a link between a document and an external resource and is used to link to external 
+  style sheets.
+  The "rel" attribute of the <link> tag is used to define the relationship ("rel") between the linked file and 
+  the HTML document, located on the bootstrap web site.  Bootstrp is a very popular open-source toolkit for 
+  developing in HTML, CSS, and JS.
+  The remaining "href" attribute of the <link> tag specify where to find the stylesheet. -->
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  
+  <!-- CSS (Cascading Style Sheets) describes how HTML elements are going to be displayed on screen, paper, or 
+  in other media, and can control the layout of multiple pages all at once.
+  The code below defines the relationship between the linked file and the HTML document. -->
+
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<!-- BODY -->
+
+<body>
+
+  <!-- NAVIGATION BAR
+  A navigation bar is a navigation header that is placed at the top of the page.
+  With Bootstrap, a navigation bar can extend or collapse, depending on the screen size.
+  A classic navigation bar (colored text on white background) can be added with the next lines of code, which 
+  start with the <nav> tag and continue with various <div> tags (container units that encapsulate other page 
+  elements and divide the HTML document into different sections).
+  A container or "wrapper" value assigned to the attribute "class" is a dummy div used for purposes of setting 
+  backgrounds, floats or padding on another div. Sometimes you need a parent div to get a block level element 
+  to do what you want, whether that's simply setting a background or using margin: 0 auto to center a block.
+  The "container-fluid" value assigned to the attribute "class" of the <div> tag creates a full width 
+  container, spanning the entire width of your viewport. -->
+
+  <div class="wrapper">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+
+          <!-- The "navbar-brand" value assigned to the attribute "class" of the <a> tag generally contains the
+          name of our company, product, or project name. 
+          In this case, we simply place the label "UFO Sighthings Data". -->
+
+          <a class="navbar-brand" href="./index_solved_by_me.html">UFO Sightings Data</a>
+
+        </div>
+      </div>
+    </nav>
+
+    <!-- A "Hero Image" page is basically a page with a picture over which you can overlap whatever text you
+    like.  The first few lines of code simply specify the main text appearing on the site. --> 
+
+    <div class="hero text-center">
+      <h1>Are There UFOs Out There?</h1>
+      <p>Directory of Actual People Sightings</p>
+    </div>
+
+    <!-- Start the container, still in the "Hero Image" site. -->
+
+    <div class="container">
+
+      <!-- This one sets the top margins. -->
+
+      <div class="row margin-top-20">
+
+        <!-- We start a column with width equal to 1/4 of the available space, which is not the entire screen
+        but rather the central part of it.  In this column, we will place the box where the user can select
+        the date, etc. of the viewings they want to see. -->
+
+        <div class="col-md-3">
+
+          <!-- The HTML <aside> tag represents a portion of a document whose content is only indirectly related
+          to the document's main content. Asides are frequently presented as sidebars or call-out boxes. 
+          An example would be a little text box inserted within the columns of an article.  -->
+          
+          <aside class="filters">
+
+            <!-- The "panel" class defines a panel, which in Bootstrap means bordered box with some padding 
+            around its content.
+            The "panel panel-WORD" (where WORD can be "default", "primary", "success", "info", "warning", 
+            "danger") gives the panel header (to be defined right below) different colors. -->
+            
+            <div class="panel panel-primary">
+
+              <!-- The "panel-heading class" defines the panel header. meaning what to show at the top of the
+              panel. -->
+
+              <div class="panel-heading">Select here</div>
+
+              <!-- The lines of code below the next one define the body (or content) of the panel. -->
+
+              <div class="panel-body">
+
+                <!-- Form controls automatically receive some global styling with Bootstrap.
+                Bootstrap provides three types of form layouts: (a) Vertical form (default); (b) Horizontal form
+                (c) Inline form.
+                Standard rules for all three form layouts: (a) Wrap labels and form controls in 
+                <div class="form-group"> (needed for optimum spacing); (b) Add class .form-control to all textual
+                <input>, <textarea>, and <select> elements -->
+                
+                <div class="form-group">
+
+                  <!-- The <ul> tag defines an unordered (bulleted) list, as opposed to the <ol> tag, which 
+                  creates a ordered one (i.e., starting with numbers instead of bullets). -->
+
+                  <ul class="list-group" id="filters">
+
+                    <!-- The <li> tag defines a list item. 
+                    The element "dropdown" of the <li> tag defines a dropdown menu containing the six main 
+                      sighting characteristics. -->
+
+                    <li class="filter list-group-item">
+                      <label for="state">Country</label>
+                      <select id="country">
+                        <option default value=" ">All</option>
+                      </select>
+                    </li>
+              
+                    <li class="filter list-group-item">
+                      <label for="state">State</label>
+                      <input class="form-control" id="state" type="text" placeholder="HI">
+                    </li>
+
+                    <li class="filter list-group-item">
+                      <label for="city">City</label>
+                      <input class="form-control" id="city" type="text" placeholder="Kapaa">
+                    </li> 
+
+                    <li class="filter list-group-item">
+                      <label for="date">Date</label>
+                      <input class="form-control" id="datetime" type="text" placeholder="12/31/2010">
+                    </li>
+
+                    <li class="filter list-group-item">
+                      <label for="shape">Shape</label>
+                      <select id="shape">
+                        <option default value=" ">All</option>
+                      </select>
+                    </li>
+
+                    <li class="list-group-item">
+                      <label for="count">Sightings per page</label>
+                      <select id="count">
+                        <option default value="50">50</option>
+                        <option value="20">20</option>
+                      </select>
+                    </li>
+
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        <!-- The code below is to show the label "Loading" while the data is uploaded. -->
+
+        <div class="col-md-4">
+          <div id="table-area" class="">
+            <h1 class="text-center loader" id="loader">Loading...</h1>
+            <table id="ufo-table" class="table table-striped">
+              <thead>
+                <tr>
+                  <th class="table-head">Country</th>
+                  <th class="table-head">State</th>
+                  <th class="table-head">City</th>
+                  <th class="table-head">Date</th>
+                  <th class="table-head">Shape</th>
+                  <th class="table-head">Duration</th>
+                  <th class="table-head">Comments</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 col-sm-offset-0 col-md-4 col-md-offset-2 text-center pagination-container">
+          <ul class="pagination" id="pagination">
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code for the simple footer. -->
+
+    <footer class="footer">
+      <span class="bottom">UFO Viewings</span>
+    </footer>
+
+  </div>
+
+  <script src="data.js" type="text/javascript"></script>
+  <script src="index_solved_by_me.js" type="text/javascript"></script>
+  
+</body>
+
+</html>
